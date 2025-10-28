@@ -1,0 +1,4 @@
+debian/bin/renpy-demo.sh    usr/share/games/renpy
+debian/icons/renpy-demo.png usr/share/icons/hicolor/128x128/apps
+debian/renpy-demo.desktop   usr/share/applications
+tutorial/*                  usr/share/games/renpy/demo

@@ -1,0 +1,10 @@
+--- a/sphinx/source/conf.py
++++ b/sphinx/source/conf.py
+@@ -35,7 +35,6 @@
+     'renpydoc',
+     'sphinx.ext.intersphinx',
+     'sphinx_rtd_theme',
+-    'sphinx_rtd_dark_mode',
+     ]
+ 
+ # Add any paths that contain templates here, relative to this directory.

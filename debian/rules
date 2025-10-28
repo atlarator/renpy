@@ -1,4 +1,52 @@
 #!/usr/bin/make -f
 
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+LDFLAGS2:=-Wl,-z,defs  -Wl,-as-needed -Wl,--no-undefined
+DPKG_EXPORT_BUILDFLAGS = 1
+include /usr/share/dpkg/architecture.mk
+include /usr/share/dpkg/buildflags.mk
+
+RENPY_DEPS_INSTALL="/usr::/usr/lib/$(DEB_HOST_MULTIARCH)"
+
 %:
-	dh $@
+	dh $@ --with sphinxdoc
+
+override_dh_install-indep:
+	chmod +x renpy.py
+	# Convert hicolor MacOS icons to png
+	icns2png -x -s 512x512 -d 32 launcher/icon.icns
+	mv icon_512x512x32.png renpy.png
+	icns2png -x -s 256x256 -d 32 the_question/icon.icns
+	mv icon_256x256x32.png renpy-thequestion.png
+	dh_install
+
+override_dh_auto_build:
+	find */ -name "*.py" ! -perm 644 | while read F; do chmod --verbose 644 "$$F"; done
+	export RENPY_DEPS_INSTALL=$(RENPY_DEPS_INSTALL) ; \
+		CFLAGS="$(CFLAGS) $(CPPFLAGS)" \
+		LDFLAGS="$(LDFLAGS) $(LDFLAGS2)" \
+		cd module && python3 setup.py build
+	export http_proxy=127.0.0.1:9
+	PYTHONPATH=. sphinx-build -N -bhtml sphinx/source/ build/html # HTML generator
+
+override_dh_auto_install:
+	export RENPY_DEPS_INSTALL=$(RENPY_DEPS_INSTALL) ; \
+		cd module && python3 setup.py install \
+			--no-compile \
+			--root=$(CURDIR)/debian/python3-renpy \
+			;
+
+override_dh_compress:
+	dh_compress --exclude=.js --exclude=.pdf --exclude=.py --exclude=.txt
+
+execute_after_dh_clean:
+	find . -name "*.pyc" -delete
+	find . -name __pycache__ -empty -delete
+	find . -name "*.so" -delete
+	find . -name "*.o" -delete
+	rm -rf module/build/
+	rm -fv module/gen/*
+	rm -fv renpy.png renpy-thequestion.png

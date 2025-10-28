@@ -1,0 +1,19 @@
+From: Markus Koschany <apo@debian.org>
+Date: Sun, 5 Feb 2023 00:47:28 +0100
+Subject: setuptools ftbfs
+
+Fix FTBFS with latest setuptools version in Debian.
+
+Forwarded: no
+---
+ module/setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+--- a/module/setup.py
++++ b/module/setup.py
+@@ -216,4 +216,4 @@
+ 
+ import renpy
+ 
+-setuplib.setup("Ren'Py", renpy.version[7:].rstrip('un')) # @UndefinedVariable
++setuplib.setup("Ren'Py", "8.1.3") # @UndefinedVariable

@@ -1,0 +1,10 @@
+usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf usr/share/games/renpy/renpy/common/DejaVuSans-Bold.ttf
+usr/share/fonts/truetype/dejavu/DejaVuSans.ttf usr/share/games/renpy/common/DejaVuSans.ttf
+usr/share/fonts/truetype/dejavu/DejaVuSans.ttf usr/share/games/renpy/launcher/DejaVuSans.ttf
+usr/share/fonts/truetype/dejavu/DejaVuSans.ttf usr/share/games/renpy/renpy/common/DejaVuSans.ttf
+usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf usr/share/games/renpy/launcher/DejaVuSerif.ttf
+usr/share/fonts/truetype/motoya-l-cedar/MTLc3m.ttf usr/share/games/renpy/launcher/game/fonts/MTLc3m.ttf
+usr/share/fonts/truetype/nanum/NanumGothic.ttf usr/share/games/renpy/launcher/game/fonts/NanumGothic.ttf
+usr/share/fonts/truetype/roboto/unhinted/RobotoTTF/Roboto-Light.ttf usr/share/games/renpy/launcher/game/fonts/Roboto-Light.ttf
+usr/share/fonts/truetype/roboto/unhinted/RobotoTTF/Roboto-Regular.ttf usr/share/games/renpy/launcher/game/fonts/Roboto-Regular.ttf
+usr/share/games/renpy/renpy.py usr/games/renpy

@@ -1,15 +1,133 @@
-Source: template-repository
-Section: unknown
+Source: renpy
+Section: games
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
+Uploaders:
+ Alexandre Detiste <tchet@debian.org>,
+ Miriam Ruiz <miriam@debian.org>,
+Build-Depends:
+ debhelper-compat (= 13),
+ dh-sequence-python3,
+ cython3,
+ icnsutils,
+ libavcodec-dev,
+ libavformat-dev,
+ libfreetype-dev,
+ libfribidi-dev,
+ libglew-dev,
+ libjpeg-dev,
+ libsdl2-dev,
+ libsdl2-gfx-dev,
+ libsdl2-image-dev,
+ libsdl2-mixer-dev,
+ libsdl2-ttf-dev,
+ libswresample-dev,
+ libswscale-dev,
+ python3-dev,
+ python3-pygame-sdl2,
+ python3-setuptools,
+ python3-sphinx,
+ python3-sphinx-rtd-theme,
+ zlib1g-dev,
+Standards-Version: 4.7.2
+Homepage: https://www.renpy.org/
+Vcs-Git: https://salsa.debian.org/games-team/renpy.git
+Vcs-Browser: https://salsa.debian.org/games-team/renpy
 
-Package: template-repository
+Package: renpy
+Architecture: all
+Depends:
+ fonts-dejavu-core,
+ fonts-motoya-l-cedar,
+ fonts-nanum,
+ fonts-roboto,
+ python3-ecdsa,
+ python3-pefile,
+ python3-pygame-sdl2,
+ python3-renpy (>= ${source:Version}),
+ ${misc:Depends},
+ ${python3:Depends},
+Recommends:
+ python3-six,
+ python3-tk,
+ zenity,
+Description: framework for developing visual-novel type games
+ Ren'Py is a programming language and runtime, intended to ease the creation
+ of visual-novel type games. It contains features that make it easy to
+ display thoughts, dialogue, and menus; to display images to the user; to
+ write game logic; and to support the saving and loading of games.
+ .
+ Ren'Py tries to be like an executable script, allowing you to get a working
+ game without much more effort than is required to type the game script into
+ the computer.
+ .
+ Ren'Py is implemented on top of Python, and that Python heritage shows
+ through in many places. Many Ren'Py statements allow Python expressions
+ to be used, and there are also Ren'Py statements that allow for the
+ execution of arbitrary Python code. Many of the less-used features of
+ Ren'Py are exposed to the user by way of Python. By only requiring use of
+ the simplest features of Python, it's hoped that Ren'Py will be usable by
+ all game authors.
+
+Package: python3-renpy
+Section: python
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends:
+ ${misc:Depends},
+ ${python3:Depends},
+ ${shlibs:Depends},
+Suggests:
+ renpy,
+Description: framework for developing visual-novel type games - Python module
+ Ren'Py is a programming language and runtime, intended to ease the creation
+ of visual-novel type games. It contains features that make it easy to
+ display thoughts, dialogue, and menus; to display images to the user; to
+ write game logic; and to support the saving and loading of games.
+ .
+ This package includes the native Python module.
+
+Package: renpy-doc
+Section: doc
+Architecture: all
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends},
+ ${sphinxdoc:Depends},
+Suggests:
+ renpy,
+Description: framework for developing visual-novel type games - doc
+ Ren'Py is a programming language and runtime, intended to ease the creation
+ of visual-novel type games. It contains features that make it easy to
+ display thoughts, dialogue, and menus; to display images to the user; to
+ write game logic; and to support the saving and loading of games.
+ .
+ This package includes the documentation for Ren'Py.
+
+Package: renpy-demo
+Architecture: all
+Depends:
+ renpy (= ${source:Version}),
+ ${misc:Depends},
+ ${python3:Depends},
+Description: framework for developing visual-novel type games - demo
+ Ren'Py is a programming language and runtime, intended to ease the creation
+ of visual-novel type games. It contains features that make it easy to
+ display thoughts, dialogue, and menus; to display images to the user; to
+ write game logic; and to support the saving and loading of games.
+ .
+ This package includes a full playable example showing the features of the
+ framework.
+
+Package: renpy-thequestion
+Architecture: all
+Depends:
+ renpy (= ${source:Version}),
+ ${misc:Depends},
+ ${python3:Depends},
+Description: simple and complete Ren'Py game
+ Ren'Py is a programming language and runtime, intended to ease the creation
+ of visual-novel type games. It contains features that make it easy to
+ display thoughts, dialogue, and menus; to display images to the user; to
+ write game logic; and to support the saving and loading of games.
+ .
+ This package includes a simple and complete Ren'Py game.

@@ -1,5 +1,665 @@
-template-repository (1.0-1) unstable; urgency=medium
+renpy (8.3.4+dfsg-5) unstable; urgency=medium
 
-  * Initial release
+  * Patch-out usage of python3-legacy-cgi
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Alexandre Detiste <tchet@debian.org>  Sun, 21 Sep 2025 16:57:54 +0200
+
+renpy (8.3.4+dfsg-4) unstable; urgency=medium
+
+  * Realy fix fonts-roboto -> fonts-robot-hinted breakage (Closes: #1111365)
+
+ -- Alexandre Detiste <tchet@debian.org>  Sat, 23 Aug 2025 22:44:16 +0200
+
+renpy (8.3.4+dfsg-3) unstable; urgency=high
+
+  * Fix fonts-roboto -> fonts-robot-hinted breakage (Closes: #1111365)
+
+ -- Alexandre Detiste <tchet@debian.org>  Fri, 22 Aug 2025 20:37:37 +0200
+
+renpy (8.3.4+dfsg-2) unstable; urgency=medium
+
+  * Team upload
+  * Depend on fonts-roboto instead of fonts-robot-hinted
+    which was a transitional package that was removed today
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Fri, 04 Apr 2025 19:07:15 -0400
+
+renpy (8.3.4+dfsg-1) unstable; urgency=medium
+
+  * New upstream version 8.3.4+dfsg
+  * Add myself as Uploader
+
+ -- Alexandre Detiste <tchet@debian.org>  Tue, 17 Dec 2024 22:05:47 +0100
+
+renpy (8.3.3+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 8.3.3+dfsg
+  * Add dependency on python3-legacy-cgi (Closes: #1084561)
+  * Refresh patches, add one-line SyntaxWarning patch (Closes: #1087047)
+
+ -- Alexandre Detiste <tchet@debian.org>  Sun, 17 Nov 2024 14:00:00 +0100
+
+renpy (8.2.3+dfsg-1) unstable; urgency=medium
+
+  * New upstream version 8.2.3+dfsg
+
+  [ Gregor Riepl ]
+  * Add a patch for compatiblity with Python 3.12 (Closes: #1077202)
+  * Add a patch for compatibility with FFMPEG 7 (Closes: #1077537)
+
+ -- Alexandre Detiste <tchet@debian.org>  Sun, 11 Aug 2024 19:36:17 +0200
+
+renpy (8.2.2+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 8.2.2+dfsg
+  * Refresh patches
+  * Set Rules-Requires-Root: no
+
+ -- Alexandre Detiste <tchet@debian.org>  Sat, 15 Jun 2024 18:47:23 +0200
+
+renpy (8.2.1+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 8.2.1+dfsg
+  * apply the usual Multiarch hint
+  * add runtime dependency on python3-ecdsa
+  * loosen dependency on python3-six
+  * use new dh-sequence-python3
+  * refresh patches
+
+ -- Alexandre Detiste <tchet@debian.org>  Sat, 27 Apr 2024 17:56:30 +0200
+
+renpy (8.1.3+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 8.1.3+dfsg (Closes: #1038426)
+  * build with cython3-legacy for now (Closes: #1056883)
+  * only build for current python3 (Closes: #1055736)
+  * remove usage of python3-future (Closes: #1061451)
+  * replace transitional libfreetype6-dev Dep with libfreetype-dev
+  * d/rules: trim & use /usr/share/dpkg/{architecture,buildflags}.mk
+  * close old, unreproductible, Python2-related, Ubuntu bugs.
+    (LP: #1017063, LP: #314936, LP: #1972076, LP: #1086231)
+  * switch to python3-sphinx-rtd-theme
+  * refresh patches
+
+ -- Alexandre Detiste <tchet@debian.org>  Sun, 28 Jan 2024 21:49:51 +0100
+
+renpy (8.0.3+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 8.0.3+dfsg.
+  * Update python3.11.patch.
+
+ -- Markus Koschany <apo@debian.org>  Sat, 25 Feb 2023 20:54:00 +0100
+
+renpy (8.0.2+dfsg-3) unstable; urgency=medium
+
+  * Team upload.
+  * Fix FTBFS with latest setuptools version in Debian. (Closes: #1030459)
+
+ -- Markus Koschany <apo@debian.org>  Sun, 05 Feb 2023 00:48:33 +0100
+
+renpy (8.0.2+dfsg-2) unstable; urgency=medium
+
+  * Team upload.
+  * Work around FTBFS with Python 3.11. Add python-3.11.patch.
+    (Closes: #1024317, #1027812)
+  * Declare compliance with Debian Policy 4.6.2.
+
+ -- Markus Koschany <apo@debian.org>  Sun, 22 Jan 2023 20:57:09 +0100
+
+renpy (8.0.2+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 8.0.2+dfsg.
+  * Update debian/copyright for new release
+  * Drop no-tinyfiledialogs.patch. The module has been included now.
+
+ -- Markus Koschany <apo@debian.org>  Tue, 23 Aug 2022 12:36:50 +0200
+
+renpy (8.0.1+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 8.0.1+dfsg.
+    * Renpy supports Python 3 now. (Closes: #1006540, #938351)
+  * Remove get-orig-source target.
+  * Rename python-renpy binary package to python3-renpy and also remove
+    python-ctypes from Recommends in debian/control.
+  * Switch to debhelper-compat = 13.
+  * Declare compliance with Debian Policy 4.6.1.
+  * d/control: Use https for homepage URL.
+  * Refresh all patches.
+  * Build-depend and depend on python3-future.
+  * Depend on python3-six for compatibility reasons.
+  * Depend on python3-pefile for changing icons.
+  * Add cython3.patch to find the correct cython command.
+  * Drop system-fribidi.patch and use local fribidi sources because the system
+    library does not work currently.
+  * Add no-tinyfiledialogs.patch because the tinyfiledialogs library is not
+    present.
+  * Install higher resolution icons.
+
+ -- Markus Koschany <apo@debian.org>  Mon, 08 Aug 2022 13:48:45 +0200
+
+renpy (7.3.5+dfsg-2) unstable; urgency=medium
+
+  * Team upload.
+  * Depend on libswresample instead of libavresample. (Closes: #971325)
+    Port to Python 3 has still not been finished yet. Just switch the
+    dependency, the game is still broken though. See also #938351.
+  * Depend on python3-pygame-sdl2.
+
+ -- Markus Koschany <apo@debian.org>  Sat, 18 Dec 2021 16:07:00 +0100
+
+renpy (7.3.5+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 7.3.5+dfsg.
+  * Declare compliance with Debian Policy 4.4.1.
+
+ -- Markus Koschany <apo@debian.org>  Sun, 20 Oct 2019 16:50:23 +0200
+
+renpy (7.3.2+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 7.3.2+dfsg.
+  * Switch to debhelper-compat = 12.
+  * Declare compliance with Debian Policy 4.4.0.
+  * Use canonical VCS URI.
+
+ -- Markus Koschany <apo@debian.org>  Fri, 09 Aug 2019 02:59:41 +0200
+
+renpy (7.1.3+dfsg-2) unstable; urgency=medium
+
+  * Team upload.
+  * Link the Nanum font with renpy.links, so that renpy-demo and
+    renpy-thequestion have access to the same file. This fixes an error in the
+    preferences menu.
+
+ -- Markus Koschany <apo@debian.org>  Sun, 02 Dec 2018 15:35:25 +0100
+
+renpy (7.1.3+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 7.1.3+dfsg.
+  * Update debian/copyright for new release.
+  * Remove fonts-droid-fallback dependency. The font is gone.
+
+ -- Markus Koschany <apo@debian.org>  Wed, 28 Nov 2018 17:39:17 +0100
+
+renpy (7.1.1+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 7.1.1+dfsg
+  * Remove fribidi-src from upstream tarball.  We use Debian's system library
+    instead.
+
+ -- Markus Koschany <apo@debian.org>  Mon, 15 Oct 2018 12:29:12 +0200
+
+renpy (7.1.0+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 7.1.0+dfsg.
+  * Declare compliance with Debian Policy 4.2.1.
+  * Add system-fribidi.patch and prefer Debian's system version again.
+
+ -- Markus Koschany <apo@debian.org>  Sat, 15 Sep 2018 21:14:14 +0200
+
+renpy (7.0.0+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 7.0.0+dfsg.
+
+ -- Markus Koschany <apo@debian.org>  Sat, 09 Jun 2018 23:20:03 +0200
+
+renpy (6.99.14.3+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 6.99.14.3+dfsg.
+  * Declare compliance with Debian Policy 4.1.4.
+
+ -- Markus Koschany <apo@debian.org>  Fri, 13 Apr 2018 01:01:40 +0200
+
+renpy (6.99.14.1+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 6.99.14.1+dfsg.
+  * Drop README.source. The source files for the documentation are now included
+    in the original tarball.
+
+ -- Markus Koschany <apo@debian.org>  Thu, 08 Feb 2018 18:46:23 +0100
+
+renpy (6.99.14+dfsg-1) unstable; urgency=medium
+
+  * New upstream version 6.99.14+dfsg.
+  * Use compat level 11.
+  * Declare compliance with Debian Policy 4.1.3.
+  * Remove the doc directory in Files-Excluded.
+  * Remove all generated code in module/gen in dh_clean override.
+
+ -- Markus Koschany <apo@debian.org>  Wed, 24 Jan 2018 23:27:34 +0100
+
+renpy (6.99.13+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 6.99.13+dfsg.
+  * Declare compliance with Debian Policy 4.1.2.
+  * Rebase translations-tmpdir.patch.
+  * Build the documentation from source with sphinxdoc.
+  * Add README.source.
+  * Update debian/copyright for new release.
+
+ -- Markus Koschany <apo@debian.org>  Sat, 02 Dec 2017 21:15:55 +0100
+
+renpy (6.99.12.4+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 6.99.12.4+dfsg.
+  * Drop deprecated menu files and xpm icons.
+  * renpy: Recommend python-tk which is required when creating new projects.
+    Thanks to Hans Joachim Desserud for the report. (Closes: #863993)
+  * Use https for Format field.
+  * export DEB_BUILD_MAINT_OPTIONS = hardening=+all.
+  * Declare compliance with Debian Policy 4.0.0.
+
+ -- Markus Koschany <apo@debian.org>  Tue, 20 Jun 2017 12:54:18 +0200
+
+renpy (6.99.12.2+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 6.99.12.2+dfsg.
+
+ -- Markus Koschany <apo@debian.org>  Wed, 04 Jan 2017 22:42:59 +0100
+
+renpy (6.99.12.1+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 6.99.12.1+dfsg.
+
+ -- Markus Koschany <apo@debian.org>  Sun, 25 Dec 2016 03:56:25 +0100
+
+renpy (6.99.12+dfsg-2) unstable; urgency=medium
+
+  * Team upload.
+  * Fix translations-tmpdir.patch and use os.path.expanduser.
+
+ -- Markus Koschany <apo@debian.org>  Thu, 22 Dec 2016 18:47:09 +0100
+
+renpy (6.99.12+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 6.99.12+dfsg.
+  * Switch to compat level 10.
+  * Update Files-Excluded paragraph.
+  * Fix symlinks to font files.
+  * Install gui directory into renpy package.
+  * Add translations-tmpdir.patch and use the user's HOME directory for storing
+    the temporary translations file.
+
+ -- Markus Koschany <apo@debian.org>  Wed, 21 Dec 2016 12:31:54 +0100
+
+renpy (6.99.11+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 6.99.11+dfsg.
+  * Declare compliance with Debian Policy 3.9.8.
+  * Add new 128x128 pixel hicolor icon for renpy-demo.
+
+ -- Markus Koschany <apo@debian.org>  Thu, 08 Sep 2016 02:22:23 +0200
+
+renpy (6.99.10+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * Imported Upstream version 6.99.10+dfsg.
+  * Drop remove-PydevCodeAnalysisIgnore.patch. Fixed upstream.
+  * Convert hicolor MacOS icons for renpy and renpy-thequestion to png
+    and install them to hicolor directory. Build-Depend on icnsutils.
+
+ -- Markus Koschany <apo@debian.org>  Sun, 27 Mar 2016 23:33:56 +0200
+
+renpy (6.99.9+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * Imported Upstream version 6.99.9+dfsg.
+  * Fix Vcs-Git URI.
+  * Drop 04_typo.patch, IMG_savepng.c.patch, ffmpeg-2.9.patch. They were
+    applied upstream.
+  * Declare compliance with Debian Policy 3.9.7.
+  * Update debian/copyright for new release.
+  * Override Lintian error source-is-missing because the js files are replaced
+    by symlinks to Debian packages which contain the sources.
+  * Add remove-PydevCodeAnalysisIgnore.patch and remove
+    #@PydevCodeAnalysisIgnore from renpy.py because it causes a runtime error
+    and the game will not start.
+
+ -- Markus Koschany <apo@debian.org>  Sun, 13 Mar 2016 19:47:21 +0100
+
+renpy (6.99.8+dfsg-2) unstable; urgency=medium
+
+  * Team upload.
+  * Add IMG_savepng.c.patch and fix FTBFS on Big-endian architectures.
+
+ -- Markus Koschany <apo@debian.org>  Tue, 26 Jan 2016 17:54:19 +0100
+
+renpy (6.99.8+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release. (Closes: #810852)
+  * debian/control:
+    - Switch to SDL2.
+    - Remove libspeex-dev, libavutil-dev, libmodplug-dev, libpng-dev.
+    - Add libjpeg-dev and python-pygame-sdl2.
+    - Replace fonts-roboto with fonts-roboto-hinted.
+    - renpy: Remove versioned python-renpy (<< ${source:Version}.1~)
+      dependency.
+  * Rebase patches 01-04.
+  * debian/rules: Use DEB_HOST_MULTIARCH for renpy's install path.
+  * Merge ffmpeg related patches into ffmpeg-2.9.patch.
+  * Ensure that renpy can be built twice in a row.
+  * debian/rules: Find all html files and fix the privacy issue.
+  * renpy-demo: Replace NanumGothic.ttf with system font
+  * renpy: Replace DroidSansFallback.ttf with system font.
+  * renpy: Replace DejaVuSans-Bold.ttf with system font.
+  * Update debian/copyright for new release and switch to copyright format 1.0.
+  * Add get-orig-source target and remove prebuilt *.pyo files
+    and unwanted fonts which are already packaged for Debian.
+
+ -- Markus Koschany <apo@debian.org>  Tue, 26 Jan 2016 15:55:51 +0100
+
+renpy (6.17.6-4) unstable; urgency=medium
+
+  * Team upload.
+  * Fix file permissions in dh_auto_build override and only in
+    dh_install-indep. Thus we can completely remove the second dh_install
+    override which also ensures that the privacy issues are properly fixed.
+
+ -- Markus Koschany <apo@debian.org>  Thu, 21 Jan 2016 12:31:54 +0100
+
+renpy (6.17.6-3) unstable; urgency=medium
+
+  * Team upload.
+  * Add an arch-indep override for dh_install so that building the package will
+    not fail on buildd.
+
+ -- Markus Koschany <apo@debian.org>  Tue, 12 Jan 2016 23:47:33 +0100
+
+renpy (6.17.6-2) unstable; urgency=medium
+
+  * Team upload.
+  * Fix FTBFS with FFmpeg 2.9. Thanks to Andreas Cadhalpun for the report and
+    patch. (Closes: #803858)
+  * Replace macros removed from FFmpeg. Thanks to Andreas Cadhalpun for the
+    report and patch. (Closes: #758365)
+  * wrap-and-sort -sa.
+  * Declare compliance with Debian Policy 3.9.6.
+  * Move the package to Git.
+  * Remove debian/pycompat because it is obsolete.
+  * Remove README.source because source format 3.0 uses quilt by default.
+  * d/control:
+    - Remove quilt from Build-Depends.
+    - Remove dpkg-dev from Build-Depends.
+    - Use unversioned libglew-dev build-dependency.
+    - Remove versioned dependency on python-pygame.
+    - Switch to fonts-dejavu-core.
+    - Replace fonts-roboto with fonts-roboto-hinted and adjust the
+      paths in links files accordingly.
+    - Build-depend on libpng-dev instead of libpng12-dev. (Closes: #662492)
+  * renpy-doc: Depend on libjs-jquery and libjs-underscore and fix Lintian
+    warning about embedded javascript libraries.
+  * Simplify debian/rules by using dh sequencer.
+    Remove dirs and docs file and use install files instead. Replace
+    dh_install, dh_links and dh_installmanpages commands with install, links
+    and manpages files.
+  * Ensure renpy can be built twice in a row.
+  * source/options: Do not use bzip compression and use xz compression instead.
+  * Update debian/watch and detect the latest releases. Thanks to Bart Martens.
+  * desktop files: Add keywords and a comment in German. Change category key to
+    Game;AdventureGame;
+
+ -- Markus Koschany <apo@debian.org>  Tue, 12 Jan 2016 20:21:20 +0100
+
+renpy (6.17.6-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Tighten dependency of penpy on same version of python-renpy" (Closes:
+    #753756)
+
+ -- Tobias Frost <tobi@debian.org>  Sun, 10 Aug 2014 19:09:07 +0200
+
+renpy (6.17.6-1) unstable; urgency=medium
+
+  [ Miriam Ruiz ]
+  * New Upstream Release. Closes: #690984
+  * Added libavresample-dev to Build-Depends. Closes: #732333
+    Thanks to Gregor Riepl.
+  * Refreshed patches.
+  * Added zenity to renpy Recommends. Closes:#707936
+  * Added to renpy Depends: fonts-roboto, fonts-motoya-l-cedar, fonts-nanum
+  * Moved to dh_python2. It was time!
+  * Added cython to Build-Depends
+
+ -- Miriam Ruiz <miriam@debian.org>  Mon, 30 Jun 2014 20:15:52 +0200
+
+renpy (6.16.5-1) unstable; urgency=medium
+
+  [ Miriam Ruiz ]
+  * New Upstream Release.
+    - CLoses: #732375 (Ren'Py fails to build due to freetype2 detection error)
+  * Upgraded Standards-Version from 3.9.4 to 3.9.5
+  * Removed potential privacy breach by fetching data from Google at runtime in
+    the documentation files
+
+ -- Miriam Ruiz <miriam@debian.org>  Wed, 19 Feb 2014 00:42:22 +0100
+
+renpy (6.15.7-1) unstable; urgency=low
+
+  [ Evgeni Golov ]
+  * Correct Vcs-* URLs to point to anonscm.debian.org
+
+  [ Miriam Ruiz ]
+  * New Upstream Release. Closes: #721026
+  * Upgraded Standards-Version from 3.9.3 to 3.9.4
+  * Upgraded compat level to 9
+  * Fortified the building of the module
+
+ -- Miriam Ruiz <miriam@debian.org>  Fri, 30 Aug 2013 22:10:15 +0200
+
+renpy (6.13.12-1) unstable; urgency=low
+
+  [ Miriam Ruiz ]
+  * New Upstream Release
+  * Refreshed patches
+  * Upgraded Standards-Version from 3.9.2 to 3.9.3
+  * Added build-indep and build-arch targets
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Sat, 02 Jun 2012 01:07:45 +0200
+
+renpy (6.12.2-1) unstable; urgency=low
+
+  [ Miriam Ruiz ]
+  * New Upstream Release
+  * Refreshed patches
+  * Added Build Dependencies: zlib1g-dev, libfreetype6-dev and
+    libpng12-dev. Closes: #633672
+  * Upgraded Standards-Version from 3.9.1 to 3.9.2
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Mon, 15 Aug 2011 02:37:29 +0200
+
+renpy (6.12.0-1) unstable; urgency=low
+
+  [ Miriam Ruiz ]
+  * New Upstream Release
+  * Refreshed patches
+  * Upgraded to Debian Source Format 3 (quilt)
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Fri, 11 Feb 2011 00:14:54 +0100
+
+renpy (6.11.0-1) experimental; urgency=low
+
+  [ Miriam Ruiz ]
+  * New Upstream Release
+  * Added Build Dependency: libglew1.5-dev
+  * Ren'Py requires at least python 2.6
+  * Upgraded Standards-Version from 3.8.4 to 3.9.1
+  * Refreshed patches
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Mon, 23 Aug 2010 17:01:55 +0200
+
+renpy (6.10.2.dfsg1-1) unstable; urgency=low
+
+  [ Miriam Ruiz ]
+  * New Upstream Release. Closes: #579352
+  * Added libfribidi-dev to Build-Depends
+  * Upgraded Standards Version to 3.8.4
+  * Fixed debian/watch file. Thanks to Yan Morin. Closes: #530950
+  * Added 04_editor.patch to call Debian's default editor instead of jEdit.
+    Closes: #517891
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Thu, 29 Apr 2010 20:49:29 +0200
+
+renpy (6.9.3.dfsg1-1) unstable; urgency=low
+
+  [ Miriam Ruiz ]
+  * New Upstream Release
+    - This release fixes several bugs with Ren'Py, includes better support
+      for running from a portable storage device, and includes a rewritten
+      Ren'Py Launcher.
+  * Upgraded Standards Version to 3.8.3
+  * Added get-orig-source target
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Fri, 28 Aug 2009 18:09:32 +0200
+
+renpy (6.9.2-1) unstable; urgency=low
+
+  [ Miriam Ruiz ]
+  * New Upstream Release
+  * Refreshed patches
+  * Requires pygame 1.8.1 to run
+  * Added libavutil-dev, libavformat-dev, libavcodec-dev and libswscale-dev
+    to Build-Depends
+  * Upgraded Standards-Version from 3.8.0 to 3.8.1
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Fri, 12 Jun 2009 01:29:05 +0200
+
+renpy (6.7.1-1) unstable; urgency=low
+
+  [ Miriam Ruiz ]
+  * New Upstream Release.
+  * Upstream tarball is shipped clean now. Removed unneccesary stuff from rules.
+  * Bumped Standards Version from 3.7.3 to 3.8.0
+  * Refreshed patches
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Thu, 13 Nov 2008 11:47:33 +0100
+
+renpy (6.6.3.dfsg1-1) unstable; urgency=low
+
+  [ Miriam Ruiz ]
+  * New Upstream Release
+  * Compile the module for all python versions
+  * Upgraded Standards-Version to 3.8.0
+  * Build-depend on debhelper >= 7
+  * Changed docs section from Apps/Programming to Programming/Python
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Sat, 16 Aug 2008 00:29:23 +0200
+
+renpy (6.6.2.dfsg1-1) unstable; urgency=low
+
+  [ Miriam Ruiz ]
+  * New Upstream Release.
+  * Upgraded Standards-Version from 3.7.2 to 3.7.3
+  * Added new binary packages: renpy-doc, renpy-thequestion
+  * Added Suggests renpy to python-renpy
+  * Removed Homepage from long description of packages
+  * Capitalize "Python" in package descriptions
+  * Assigned python-renpy to section python and renpy-doc to section doc
+
+  [ Emmet Hikory ]
+  * Added watch file
+
+  [ Jon Dowland ]
+  * Added Homepage: control field to source stanza
+
+  [ Ansgar Burchardt ]
+  * Removed deprecated Encoding key from .desktop file
+  * debian/control: Changed XS-Vcs-* to Vcs-*
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Thu, 15 May 2008 14:24:34 +0000
+
+renpy (6.3.1.ds1-1) unstable; urgency=low
+
+  * New Upstream Release.
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Sun, 05 Aug 2007 20:01:33 +0000
+
+renpy (6.3.0.ds1-1) unstable; urgency=low
+
+  * New Upstream Release.
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Tue, 26 Jun 2007 15:22:52 +0000
+
+renpy (6.2.0.ds1-1) unstable; urgency=low
+
+  *  New Upstream Release. First upload to Debian archive.
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Tue, 01 May 2007 21:40:44 +0200
+
+renpy (5.6.4.ds1-1) unstable; urgency=low
+
+  * New Upstream Release.
+
+  [ Gonéri Le Bouder ]
+  * call dh_desktop to run update-desktop-database
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Thu, 14 Dec 2006 18:37:32 +0000
+
+renpy (5.6.2.ds1-1) unstable; urgency=low
+
+  [ Miriam Ruiz ]
+  * New Upstream Release.
+  * Modified building system for using quilt.
+  * Renamed binary package renpy-module to python-renpy.
+  * Added man page.
+  * Upgraded compat to 5.
+
+  [ Gonéri Le Bouder ]
+  * remove Applications from Categorie in the desktop file since it's not
+    an official categorie
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Fri, 13 Oct 2006 03:14:27 +0200
+
+renpy (5.6.0-1) unstable; urgency=low
+
+  * New Upstream Release.
+  * Upgraded version dependency for debhelper from >= 4.0.0 to >= 5.0.37.2
+    for dh_python compatibility level 2.
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Mon, 11 Sep 2006 16:09:40 +0200
+
+renpy (5.5.4-1) unstable; urgency=low
+
+  * New Upstream Release.
+  * Adapted for the python transition.
+  * Updated Standards-Version to 3.7.2 (no changes needed).
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Fri, 18 Aug 2006 21:35:19 +0200
+
+renpy (5.5.2b-1) unstable; urgency=low
+
+  * New Upstream Release.
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Thu, 29 Jun 2006 23:05:22 +0200
+
+renpy (5.5.2a-1) unstable; urgency=low
+
+  * New Upstream Release.
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Wed,  7 Jun 2006 23:04:53 +0200
+
+renpy (5.4.3-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Miriam Ruiz <little_miry@yahoo.es>  Fri, 17 Mar 2006 16:57:21 +0100

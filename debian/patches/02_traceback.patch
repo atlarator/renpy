@@ -1,0 +1,36 @@
+From: Markus Koschany <apo@debian.org>
+Date: Sun, 7 Aug 2022 22:14:32 +0200
+Subject: 02_traceback
+
+---
+ renpy/error.py | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
+
+--- a/renpy/error.py
++++ b/renpy/error.py
+@@ -217,10 +217,24 @@
+     simple = simple.getvalue()
+     full = full.getvalue()
+ 
++    try:
++        if not os.path.isdir(os.path.expanduser("~/.renpy")):
++            os.makedirs(os.path.expanduser("~/.renpy"))
++    except:
++        pass
++
+     # Inside of the file, which may not be openable.
+     try:
++        tbdir = renpy.config.savedir
++        if tbdir[-1] == '/':
++           tbdir = tbdir[:-1]
++        tbdir = os.path.dirname(tbdir) + "/"
++        try:
++            os.makedirs(tbdir)
++        except:
++            pass
+ 
+-        f, traceback_fn = open_error_file("traceback.txt", "w")
++        f, traceback_fn = open_error_file(tbdir + "traceback.txt", "w")
+ 
+         with f:
+             f.write("\ufeff") # BOM

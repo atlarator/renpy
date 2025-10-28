@@ -1,0 +1,5 @@
+version=3
+opts=uversionmangle=s/-source$//;s/^(\S+-(?:editra|sdk|atom|raspi$))/0.0.$1/,dversionmangle=s/(\da?)[\+\.\-~](?:dfsg|debian|ds|repack|repacked)\.?\d*$/$1/,repacksuffix=+dfsg \
+http://www.renpy.org/latest.html \
+(?:|.*/)renpy(?:[_\-]v?|)(\d[^\s/]*)\.(?:tar\.xz|txz|tar\.bz2|tbz2|tar\.gz|tgz)
+

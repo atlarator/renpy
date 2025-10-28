@@ -1,0 +1,21 @@
+From: Markus Koschany <apo@debian.org>
+Date: Sun, 7 Aug 2022 22:14:47 +0200
+Subject: 03_checkdir
+
+---
+ renpy/main.py | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+--- a/renpy/main.py
++++ b/renpy/main.py
+@@ -357,6 +357,10 @@
+     if (renpy.android or renpy.ios) and not renpy.config.log_to_stdout:
+         print("Version:", renpy.version)
+ 
++    # Check if the game directory exists and is a directory
++    if not os.path.isdir(renpy.config.gamedir):
++        raise Exception("The game directory '%s' doesn't exist" % renpy.config.gamedir)
++
+     # Note the game directory.
+     game.basepath = renpy.config.gamedir
+     renpy.config.commondir = renpy.__main__.path_to_common(renpy.config.renpy_base) # E1101 @UndefinedVariable

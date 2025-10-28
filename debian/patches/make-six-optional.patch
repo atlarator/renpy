@@ -1,0 +1,18 @@
+--- a/renpy/__init__.py
++++ b/renpy/__init__.py
+@@ -564,9 +564,12 @@
+ 
+     import renpy.main
+ 
+-    global six
+-    import six
+-    sys.modules[pystr('renpy.six')] = six
++    try:
++        global six
++        import six
++        sys.modules[pystr('renpy.six')] = six
++    except:
++        pass
+ 
+     # Back up the Ren'Py modules.
+ 

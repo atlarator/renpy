@@ -1,0 +1,46 @@
+commit 2901314d05cf0ec29e35b3f8d7199927eaf8001e
+Author: Gregor Riepl <onitake@gmail.com>
+Date:   Fri Aug 9 00:36:08 2024 +0200
+
+    Fix custom importer/finder/loader to be compatible with Python 3.12
+
+--- a/renpy/loader.py
++++ b/renpy/loader.py
+@@ -36,6 +36,8 @@
+ import unicodedata
+ import time
+ 
++from importlib.util import spec_from_loader
++
+ from pygame_sdl2.rwobject import RWopsIO
+ 
+ from renpy.compat.pickle import loads
+@@ -834,6 +836,11 @@
+         return None
+ 
+     def find_module(self, fullname, path=None):
++        """
++        Removed in Python 3.12 in favor of find_spec().
++        Left here for compatibility with Python < 3.4
++        (see https://docs.python.org/3/library/sys.html#sys.meta_path )
++        """
+         if path is not None:
+             for i in path:
+                 if self.translate(fullname, i):
+@@ -842,6 +849,16 @@
+         if self.translate(fullname):
+             return self
+ 
++    def find_spec(self, fullname, path, target=None):
++        if path is not None:
++            for i in path:
++                if self.translate(fullname, i):
++                    return spec_from_loader(name=fullname, loader=RenpyImporter(i), origin=path)
++
++        if self.translate(fullname):
++            return spec_from_loader(name=fullname, loader=self, origin=path)
++
++
+     def load_module(self, fullname, mode="full"):
+         """
+         Loads a module. Possible modes include "is_package", "get_source", "get_code", or "full".

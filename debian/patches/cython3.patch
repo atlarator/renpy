@@ -1,0 +1,27 @@
+From: Markus Koschany <apo@debian.org>
+Date: Sun, 7 Aug 2022 22:56:57 +0200
+Subject: cython3
+
+---
+ module/setuplib.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+--- a/module/setuplib.py
++++ b/module/setuplib.py
+@@ -67,7 +67,7 @@
+     gen += "-static"
+ 
+ # The cython command.
+-cython_command = os.environ.get("RENPY_CYTHON", "cython")
++cython_command = os.environ.get("RENPY_CYTHON", "cython3")
+ 
+ # Note that the android build sets up CFLAGS for us, and ensures
+ # that necessary libraries are present. So autoconfiguration is
+@@ -347,6 +347,7 @@
+             ] + annotate + lang_args + coverage_args + [
+             "-X", "profile=False",
+             "-X", "embedsignature=True",
++            "-X", "legacy_implicit_noexcept=True",
+             fn,
+             "-o",
+             c_fn], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)

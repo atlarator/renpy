@@ -1,0 +1,33 @@
+From: Markus Koschany <apo@debian.org>
+Date: Sun, 7 Aug 2022 22:14:04 +0200
+Subject: 01_abspath
+
+---
+ renpy.py | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+--- a/renpy.py
++++ b/renpy.py
+@@ -140,6 +140,13 @@
+         print("Saving to", rv)
+         return rv
+ 
++    if gamedir.startswith("/usr/share/games/renpy"):
++        # The gamename is the final component of the path to the gamedir
++        gamename = gamedir[len("/usr/share/games/renpy"):]
++        if gamename.endswith("/game") or gamename.endswith("/data"):
++            gamename = gamename[:-5]
++        return os.path.expanduser("~/.renpy/") + gamename + "/saves"
++
+     if renpy.ios:
+         from pyobjus import autoclass # type: ignore
+         from pyobjus.objc_py_types import enum # type: ignore
+@@ -211,7 +218,7 @@
+     Returns the absolute path to the Ren'Py base directory.
+     """
+ 
+-    renpy_base = os.path.dirname(os.path.abspath(__file__))
++    renpy_base = "/usr/share/games/renpy"
+     renpy_base = os.path.abspath(renpy_base)
+ 
+     return renpy_base

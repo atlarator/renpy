@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Ren'Py Demo
+GenericName=renpy-demo
+Comment=visual-novel game demo with Ren'Py
+Comment[es]=demo de juego de novela grafica con Ren'Py
+Comment[de]=Demospiel eines japanischen Bildromans mit Ren'Py
+Icon=renpy-demo
+Exec=renpy-demo
+Terminal=false
+Categories=Game;AdventureGame;
+Keywords=visual;novel;japanese;demo;

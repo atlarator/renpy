@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Ren'Py
+GenericName=renpy
+Comment=visual-novel type games
+Comment[es]=juegos de novela grafica
+Comment[de]=Spiele in der Art von japanischen Bildromanen
+Icon=renpy
+Exec=renpy
+Terminal=false
+Categories=Game;AdventureGame;
+Keywords=visual;novel;japanese;development;

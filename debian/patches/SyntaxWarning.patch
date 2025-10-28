@@ -1,0 +1,11 @@
+--- a/launcher/game/gui7/code.py
++++ b/launcher/game/gui7/code.py
+@@ -172,7 +172,7 @@
+ 
+         for l in self.lines:
+ 
+-            m = re.match('^(\s*)define (.*?) =', l)
++            m = re.match(r'^(\s*)define (.*?) =', l)
+ 
+             if m:
+                 indent = m.group(1)

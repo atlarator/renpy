@@ -1,0 +1,14 @@
+01_abspath.patch
+02_traceback.patch
+03_checkdir.patch
+translations-tmpdir.patch
+cython3.patch
+read-write-permissions.patch
+setuptools-ftbfs.patch
+remove-future.patch
+sphinx
+make-six-optional.patch
+absolute-launcher-imports.patch
+ffmpeg-7.patch
+SyntaxWarning.patch
+legacy-cgi.patch

@@ -1,0 +1,31 @@
+Index: renpy/launcher/game/webserver.py
+===================================================================
+--- renpy.orig/launcher/game/webserver.py
++++ renpy/launcher/game/webserver.py
+@@ -5,7 +5,7 @@ import posixpath
+ import os
+ import http.server
+ import urllib.parse
+-import cgi
++import html
+ import sys
+ import shutil
+ import mimetypes
+@@ -152,7 +152,7 @@ class WebHandler(http.server.BaseHTTPReq
+             return None
+         list.sort(key=lambda a: a.lower())
+         f = io.StringIO()
+-        displaypath = cgi.escape(urllib.parse.unquote(self.path))
++        displaypath = html.escape(urllib.parse.unquote(self.path))
+         f.write('<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">')
+         f.write("<html>\n<title>Directory listing for %s</title>\n" % displaypath)
+         f.write("<body>\n<h2>Directory listing for %s</h2>\n" % displaypath)
+@@ -168,7 +168,7 @@ class WebHandler(http.server.BaseHTTPReq
+                 displayname = name + "@"
+                 # Note: a link to a directory displays with @ and links with /
+             f.write('<li><a href="%s">%s</a>\n'
+-                    % (urllib.parse.quote(linkname), cgi.escape(displayname)))
++                    % (urllib.parse.quote(linkname), html.escape(displayname)))
+         f.write("</ul>\n<hr>\n</body>\n</html>\n")
+         length = f.tell()
+         f.seek(0)

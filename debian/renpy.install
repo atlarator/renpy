@@ -1,0 +1,7 @@
+debian/renpy.desktop        usr/share/applications
+gui                         usr/share/games/renpy
+launcher                    usr/share/games/renpy
+renpy                       usr/share/games/renpy
+renpy.png                   usr/share/icons/hicolor/512x512/apps
+renpy.py                    usr/share/games/renpy
+sdk-fonts                   usr/share/games/renpy
